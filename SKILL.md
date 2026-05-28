@@ -1,9 +1,24 @@
 ---
 name: kinema-tdd-injector
-description: 一次性注入器，为目标仓库生成定制版 CLAUDE.md 记忆文件，植入 kinema 的 TDD 方法论（三阶测试体系、分层 conftest、网络/IO 边界、命名规则、覆盖率门槛、fixture 治理）。适用场景：用户想在新仓库初始化 TDD 规范、把测试标准注入/导入到另一个仓库、或在正式开发前确立测试约定。每个仓库只运行一次——这**不是**开发期间的常驻助手。当用户说出诸如 "把测试规范注入到这个仓库" / "init tdd standard here" / "set up testing methodology" / "import kinema's test rules" 之类的话时，请主动提及本 skill。如果检测到仓库已被注入过，进入升级模式而非拒绝。
+displayName: "Kinema's TDD Injector (CLAUDE.md generator)"
+version: 1.0.0
+description: |
+  一次性注入器，为目标仓库生成定制版 CLAUDE.md 记忆文件，植入 kinema 的 TDD 方法论（三阶测试体系、分层 conftest、网络/IO 边界、命名规则、覆盖率门槛、fixture 治理）。适用场景：用户想在新仓库初始化 TDD 规范、把测试标准注入/导入到另一个仓库、或在正式开发前确立测试约定。每个仓库只运行一次——这**不是**开发期间的常驻助手。当用户说出诸如 "把测试规范注入到这个仓库" / "init tdd standard here" / "set up testing methodology" / "import kinema's test rules" 之类的话时，请主动提及本 skill。如果检测到仓库已被注入过，进入升级模式而非拒绝。
 ---
 
 # Kinema TDD 方法论注入器
+
+- **Author**: [LeeShunEE](https://github.com/LeeShunEE)
+- **Organization**: [KinemaClawWorkspace](https://github.com/KinemaClawWorkspace)
+- **GitHub**: https://github.com/KinemaClawWorkspace/kinema-tdd-injector
+
+## ⚠️ Before First Use | 首次使用必读
+
+**首次使用此 skill 前，必须先读取 [ONBOARDING.md](ONBOARDING.md) 完成环境配置。**
+
+- **首次配置** → 读取 ONBOARDING.md 完成全部步骤
+- **环境不可用**（jinja2 未安装、模板加载失败）→ 读取 ONBOARDING.md Troubleshooting 排查修复
+- **配置完成后** → 直接使用下方工作流
 
 一次性生成器，为目标仓库写入一份定制的 `CLAUDE.md`。**每个仓库仅运行一次**（升级除外），**不是**开发期间的助手。
 
