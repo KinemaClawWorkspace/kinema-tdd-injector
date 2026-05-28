@@ -2,6 +2,34 @@
 
 一次性注入器，为目标仓库生成定制版 CLAUDE.md 记忆文件，植入 kinema 的 TDD 方法论。
 
+## 安装
+
+### 方法一：通过 ClawHub OpenClaw
+
+```bash
+clawhub openclaw skills install kinema-tdd-injector
+```
+
+### 方法二：通过 Claude Code Marketplace
+
+首先添加 KinemaClaw Skills Marketplace：
+
+```
+/plugin marketplace add https://github.com/KinemaClawWorkspace/kinema-skills-marketplace
+```
+
+然后安装 skill：
+
+```
+/plugin install kinema-tdd-injector@kinema-skills-marketplace
+```
+
+查看已安装的 skill：
+
+```
+/plugin list
+```
+
 ## 功能
 
 - 三阶测试体系（unit / dev-integration / e2e-integration）
