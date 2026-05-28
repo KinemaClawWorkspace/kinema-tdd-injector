@@ -1,6 +1,6 @@
 # Kinema TDD Injector
 
-一次性注入器，为目标仓库生成定制版 `CLAUDE.md` 记忆文件，植入 kinema 的 TDD 方法论。
+一次性注入器，为目标仓库生成定制版 CLAUDE.md 记忆文件，植入 kinema 的 TDD 方法论。
 
 ## 功能
 
@@ -11,12 +11,14 @@
 - 覆盖率门槛配置
 - Fixture 治理规则
 - Commit message 规范
+- 升级模式（反解旧参数，无需重新填写）
 
 ## 适用场景
 
 - 在新仓库初始化 TDD 规范
 - 把测试标准注入/导入到另一个仓库
 - 在正式开发前确立测试约定
+- 升级已注入仓库的测试规范
 
 ## 使用方式
 
@@ -29,11 +31,14 @@ set up testing methodology
 import kinema's test rules
 ```
 
+首次使用需完成 [ONBOARDING.md](ONBOARDING.md) 环境配置（安装 jinja2）。
+
 ## 文件结构
 
 ```
 kinema-tdd-injector/
 ├── SKILL.md              # Skill 定义文件
+├── ONBOARDING.md         # 首次配置引导
 ├── assets/
 │   └── claude_md.j2      # Jinja2 模板
 ├── scripts/
@@ -49,4 +54,4 @@ kinema-tdd-injector/
 
 ## 许可证
 
-MIT
+[GNU General Public License v3.0](LICENSE)
