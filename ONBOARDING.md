@@ -4,8 +4,7 @@
 
 ## Prerequisites | 前置条件
 
-- Python 3.11+
-- `uv` 包管理器（推荐）或 pip
+- `uv` 包管理器
 - 目标仓库为 Python 或 TypeScript/JavaScript 项目
 
 ## Step 1: 检测 Jinja2
@@ -13,30 +12,17 @@
 ### 检测
 
 ```bash
-python3 -c "import jinja2; print(jinja2.__version__)"
+uv run --with jinja2 python -c "import jinja2; print(jinja2.__version__)"
 ```
 
 **期望输出**: 版本号（如 `3.1.2`）
 
-### 安装
-
-按优先级尝试：
-
-```bash
-# 方案 A: uv（推荐）
-uv pip install jinja2 --quiet
-
-# 方案 B: pip（用户级）
-pip3 install --user jinja2
-
-# 方案 C: pip（系统级，需 sudo）
-sudo pip3 install --break-system-packages jinja2
-```
+无需手动安装 jinja2，`uv run --with` 会自动处理依赖。
 
 ### 验证
 
 ```bash
-python3 -c "import jinja2; print('✅ jinja2 ready')"
+uv run --with jinja2 python -c "import jinja2; print('✅ jinja2 ready')"
 ```
 
 ## Step 2: 验证模板文件
@@ -52,7 +38,7 @@ ls <skill_dir>/assets/claude_md.j2
 ### 验证
 
 ```bash
-python3 -c "
+uv run --with jinja2 python -c "
 from jinja2 import FileSystemLoader, Environment
 env = Environment(loader=FileSystemLoader('<skill_dir>/assets'))
 template = env.get_template('claude_md.j2')
@@ -71,7 +57,7 @@ ls <skill_dir>/scripts/render.py
 ### 验证
 
 ```bash
-python3 <skill_dir>/scripts/render.py --help
+uv run --with jinja2 python <skill_dir>/scripts/render.py --help
 ```
 
 **期望输出**: 帮助信息或无错误退出
@@ -90,20 +76,16 @@ python3 <skill_dir>/scripts/render.py --help
 
 | 错误 | 原因 | 解决方案 |
 |------|------|----------|
-| `ModuleNotFoundError: No module named 'jinja2'` | Jinja2 未安装 | 执行 Step 1 安装命令 |
+| `ModuleNotFoundError: No module named 'jinja2'` | uv 未正确调用 | 确认使用 `uv run --with jinja2` |
 | `TemplateNotFound: claude_md.j2` | 模板路径错误 | 确认 `<skill_dir>` 正确，检查 `assets/` 目录 |
-| `Permission denied` | pip 安装权限问题 | 使用 `--user` 或 `uv pip install` |
-| `SyntaxError` in render.py | Python 版本过低 | 升级到 Python 3.11+ |
+| `SyntaxError` in render.py | Python 版本过低 | 升级 Python 或通过 `uv python install` 管理 |
 | 目标仓库含 Go/Rust | 规范不支持 | 告知用户："本规范仅支持 Python + TS/JS" |
 
 ## Quick Reference
 
 ```bash
-# 一键安装依赖
-uv pip install jinja2
-
-# 渲染命令
-python3 <skill_dir>/scripts/render.py \
+# 渲染命令（jinja2 由 uv run --with 自动管理）
+uv run --with jinja2 python <skill_dir>/scripts/render.py \
   --params <repo>/.kinema-params.tmp.json \
   --out <repo>/.kinema-claude.draft.md
 ```

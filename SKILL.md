@@ -172,7 +172,7 @@ CLAUDE.md 会包含以下章节（依据用户回答动态裁剪）：
 }
 ```
 
-**渲染命令**（在 skill 目录下执行；jinja2 需事先安装）：
+**渲染命令**（在 skill 目录下执行；`uv run --with` 自动管理 jinja2 依赖）：
 
 ```bash
 uv run --with jinja2 python "<skill_root>/scripts/render.py" \
@@ -180,7 +180,7 @@ uv run --with jinja2 python "<skill_root>/scripts/render.py" \
   --out "<repo>/.kinema-claude.draft.md"
 ```
 
-若 `uv` 不可用，回退到 `python -m pip install --user jinja2 && python <skill_root>/scripts/render.py ...`。
+若 `uv` 不可用，报告错误并让用户安装 `uv`（https://docs.astral.sh/uv/getting-started/installation/）后重试。不允许直接调用 `python`。
 
 ### 步骤 7 —— 与既有 CLAUDE.md 对比 + 写入
 
@@ -256,7 +256,7 @@ uv run --with jinja2 python "<skill_root>/scripts/render.py" \
 
 - **0 个包**：报告并请用户手动声明 / 中止
 - **5+ 个包**（monorepo）：列出包名并请用户筛选要纳入规范的包
-- **render.py 失败**（jinja2 未装 / 模板语法错）：报告完整 stderr，让用户决定是否手动 `uv pip install jinja2` 后重试
+- **render.py 失败**（jinja2 未装 / 模板语法错）：报告完整 stderr，让用户确认 `uv` 可用后重试。不允许直接调用 `python`
 
 ## 升级模式反解规则（简要）
 
