@@ -4,30 +4,30 @@
 
 ## 安装
 
-### 方法一：通过 ClawHub OpenClaw
+### 方法一：通过 Claude Code Marketplace
 
-```bash
-clawhub openclaw skills install kinema-tdd-injector
-```
-
-### 方法二：通过 Claude Code Marketplace
-
-首先添加 KinemaClaw Skills Marketplace：
+1. 添加 Marketplace：
 
 ```
 /plugin marketplace add https://github.com/KinemaClawWorkspace/kinema-skills-marketplace
 ```
 
-然后安装 skill：
+2. 安装 Skill：
 
 ```
 /plugin install kinema-tdd-injector@kinema-skills-marketplace
 ```
 
-查看已安装的 skill：
+1. 查看已安装的 Skill：
 
 ```
 /plugin list
+```
+
+### 方法二：通过 ClawHub OpenClaw
+
+```bash
+openclaw skills install kinema-tdd-injector
 ```
 
 ## 功能
