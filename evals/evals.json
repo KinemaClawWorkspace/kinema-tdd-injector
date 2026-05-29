@@ -10,7 +10,7 @@
         "无前端时按用户选择 frontend 字段填 false",
         "渲染时 frontend 相关块全部隐藏",
         "生成的 CLAUDE.md 不包含 pnpm / vitest / frontend 字样",
-        "包含 tests/test-integration/backend/ 阶段（除非用户明确禁用）"
+        "包含 tests/testenv-integration/backend/ 阶段（除非用户明确禁用）"
       ],
       "files": []
     },
@@ -21,7 +21,7 @@
       "expected_behavior": [
         "扫描仓库，识别出仅有 frontend",
         "渲染时 backend 相关块全部隐藏",
-        "test_integration 字段强制 false（前端无此阶段）",
+        "testenv_integration 字段强制 false（前端无此阶段）",
         "生成的 CLAUDE.md 不包含 uv / pyproject 字样",
         "明确写出'前端仅有两阶'"
       ],

@@ -149,7 +149,7 @@ CLAUDE.md 会包含以下章节（依据用户回答动态裁剪）：
 {
   "backend": true,
   "frontend": true,
-  "test_integration": true,
+  "testenv_integration": true,
   "backend_pkg": "backend",
   "backend_src_root": "app",
   "frontend_pkg": "frontend",

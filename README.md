@@ -32,7 +32,7 @@ openclaw skills install kinema-tdd-injector
 
 ## 功能
 
-- 三阶测试体系（unit / dev-integration / e2e-integration）
+- 三阶测试体系（unit / dev-integration / testenv-integration）
 - 分层 conftest 架构
 - 网络/IO 边界规范
 - 命名规则（测试路径三层命名）
